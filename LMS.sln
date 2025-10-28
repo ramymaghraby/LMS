@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.PL", "LMS.PL\LMS.PL.csproj", "{273D7110-6042-43EE-8C14-944553CB4DFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.DAL", "LMS.DAL\LMS.DAL.csproj", "{0D08C68A-A0CE-4B57-B9BB-66EA0C317692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BLL", "LMS.BLL\LMS.BLL.csproj", "{1DD0B873-BCFE-4669-9592-FD28AEB69674}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{273D7110-6042-43EE-8C14-944553CB4DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273D7110-6042-43EE-8C14-944553CB4DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273D7110-6042-43EE-8C14-944553CB4DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273D7110-6042-43EE-8C14-944553CB4DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D08C68A-A0CE-4B57-B9BB-66EA0C317692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D08C68A-A0CE-4B57-B9BB-66EA0C317692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D08C68A-A0CE-4B57-B9BB-66EA0C317692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D08C68A-A0CE-4B57-B9BB-66EA0C317692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD0B873-BCFE-4669-9592-FD28AEB69674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD0B873-BCFE-4669-9592-FD28AEB69674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD0B873-BCFE-4669-9592-FD28AEB69674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD0B873-BCFE-4669-9592-FD28AEB69674}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5708F54-36C6-4A12-90D3-1927A054E71B}
+	EndGlobalSection
+EndGlobal
