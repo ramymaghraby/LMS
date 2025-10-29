@@ -19,7 +19,9 @@ namespace LMS.DAL.Entities
         [StringLength(13)]
         public string ISBN{ get; set; }
         public int PublishedYear { get; set; }
+        public int Rate { get; set; }
         public int CategoryId { get; set; }
+
 
         // Navigation Property
         public Category Category { get; set; }
