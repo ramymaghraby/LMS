@@ -54,6 +54,42 @@ namespace LMS.BLL.Repository
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == result.BookId);
             return (book, result.BorrowCount);
         }
+        public async Task<(Book Book, int ReserveCount)> GetMostReserved()
+        {
+            var result = await _db.ReservationTransactions
+                .GroupBy(b => b.BookId)
+                .Select(g => new
+                {
+                    BookId = g.Key,
+                    ReserveCount = g.Count()
+                })
+                .OrderByDescending(x => x.ReserveCount)
+                .FirstOrDefaultAsync();
+            if (result == null)
+                return (null, 0);
+            var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == result.BookId);
+            return (book, result.ReserveCount);
+        }
+        public async Task<(Book Book, int ReserveCount)> GetLeastReserved()
+        {
+            var result = await _db.ReservationTransactions
+                .GroupBy(b => b.BookId)
+                .Select(g => new
+                {
+                    BookId = g.Key,
+                    ReserveCount = g.Count()
+                })
+                .OrderBy(x => x.ReserveCount)
+                .FirstOrDefaultAsync();
+            if (result == null)
+                return (null, 0);
+            var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == result.BookId);
+            return (book, result.ReserveCount);
+        }
 
+    }
+
+    public interface IBookRepository 
+    { 
     }
 }
