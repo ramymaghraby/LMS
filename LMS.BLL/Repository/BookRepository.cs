@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace LMS.BLL.Repository
 {
-    public class BookRepository : GenericRepository<Book>
+    public class BookRepository : GenericRepository<Book>, IBookRepository
     {
         ApplicationContext _db = new ApplicationContext();
-        public async Task<Book> GetHighestRating()
+        public async Task<Book?> GetHighestRating()
         {
             var result = await _db.Set<Book>().OrderByDescending(book => book.Rate).FirstOrDefaultAsync();
             return result;
         }
-        public async Task<Book> GetLowestRating()
+        public async Task<Book?> GetLowestRating()
         {
             var result = await _db.Set<Book>().OrderBy(book => book.Rate).FirstOrDefaultAsync();
             return result;
         }
-        public async Task<(Book Book, int BorrowCount)> GetMostBorrowed()
+        public async Task<(Book? Book, int BorrowCount)> GetMostBorrowed()
         {
             var result = await _db.BorrowTransactions
                 .GroupBy(b => b.BookId)
@@ -38,7 +38,7 @@ namespace LMS.BLL.Repository
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == result.BookId);
             return (book, result.BorrowCount);
         }
-        public async Task<(Book Book, int BorrowCount)> GetLeastBorrowed()
+        public async Task<(Book? Book, int BorrowCount)> GetLeastBorrowed()
         {
             var result = await _db.BorrowTransactions
                 .GroupBy(b => b.BookId)
@@ -54,7 +54,7 @@ namespace LMS.BLL.Repository
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == result.BookId);
             return (book, result.BorrowCount);
         }
-        public async Task<(Book Book, int ReserveCount)> GetMostReserved()
+        public async Task<(Book? Book, int ReserveCount)> GetMostReserved()
         {
             var result = await _db.ReservationTransactions
                 .GroupBy(b => b.BookId)
@@ -70,7 +70,7 @@ namespace LMS.BLL.Repository
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == result.BookId);
             return (book, result.ReserveCount);
         }
-        public async Task<(Book Book, int ReserveCount)> GetLeastReserved()
+        public async Task<(Book? Book, int ReserveCount)> GetLeastReserved()
         {
             var result = await _db.ReservationTransactions
                 .GroupBy(b => b.BookId)
@@ -90,6 +90,12 @@ namespace LMS.BLL.Repository
     }
 
     public interface IBookRepository 
-    { 
+    {
+        Task<Book?> GetHighestRating();
+        Task<Book?> GetLowestRating();
+        Task<(Book? Book, int BorrowCount)> GetMostBorrowed();
+        Task<(Book? Book, int BorrowCount)> GetLeastBorrowed();
+        Task<(Book? Book, int ReserveCount)> GetMostReserved();
+        Task<(Book? Book, int ReserveCount)> GetLeastReserved();
     }
 }
