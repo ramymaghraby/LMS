@@ -41,3 +41,4 @@ namespace LMS.BLL.Repository
         Task<List<BorrowTransaction>> FindByMember(int memberId);
 
     }
+}
