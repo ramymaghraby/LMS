@@ -10,9 +10,4 @@
     <ProjectReference Include="..\LMS.DAL\LMS.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Service\" />
-  </ItemGroup>
-
 </Project>
